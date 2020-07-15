@@ -36,7 +36,8 @@ read_mobile_number() {
 read_password() {
     password_pattern_rule1="^[a-zA-Z0-9]{8,}$";
     password_pattern_rule2="^([a-zA-Z0-9]*[A-Z]{1,}[a-zA-Z0-9]*)$";
-    if [[ $* =~ $password_pattern_rule1 ]] && [[ $* =~ $password_pattern_rule2 ]]
+    password_pattern_rule3="^([a-zA-Z0-9]*[0-9]{1,}[a-zA-Z0-9]*)$";
+    if [[ $* =~ $password_pattern_rule1 ]] && [[ $* =~ $password_pattern_rule2 ]] && [[ $* =~ $password_pattern_rule3 ]]
     then
             echo "Valid password";
     else
