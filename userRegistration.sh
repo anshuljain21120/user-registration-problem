@@ -27,3 +27,14 @@ do
     fi
 done
 
+isValid=0;
+while [ $isValid -eq 0 ]
+do
+    read -p "Enter valid Email address: " email_id;
+    if [[ $email_id =~ ^[a-zA-Z](\.?[a-zA-Z0-9_+-]+){1,2}@([a-zA-Z0-9_]+[+-]*\.){1,2}[a-zA-Z]{2,}[a-zA-Z0-9]*$ ]]
+    then
+        isValid=1;
+    else
+        echo "Invalid Input! Enter a email address of the form abc@xyz.com or abc.xyz@bl.co.in";
+    fi
+done
