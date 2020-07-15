@@ -23,7 +23,7 @@ read_email() {
         exit 0;
     fi
 }
-read_mobile() {
+read_mobile_number() {
     mobile_pattern="^((\+?[0-9]{1,3}|[0-9]{1,4})\s[0-9]{10})$";
     if [[ $* =~ $mobile_pattern ]]
     then
@@ -33,7 +33,16 @@ read_mobile() {
             exit 0;
     fi
 }
-
+read_password() {
+    password_pattern="^[a-zA-Z0-9]{8,}$";
+    if [[ $* =~ $password_pattern ]]
+    then
+            echo "Valid password";
+    else
+            echo "Invalid Input! Enter minimum 8 characters";
+            exit 0;
+    fi
+}
 read -p "Enter valid first name: " first_name;
 read_name $first_name
 
@@ -44,4 +53,7 @@ read -p "Enter valid Email address: " email_id;
 read_email $email_id
 
 read -p "Enter valid mobile phone number: " mobile_number;
-read_mobile $mobile_number
+read_mobile_number $mobile_number
+
+read -p "Enter valid password: " password;
+read_password $password
